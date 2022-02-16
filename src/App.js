@@ -10,7 +10,7 @@ function App() {
   const {username, email} = inputs
 
   const onChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target // [e.name] = e.target.value 하니까 입력불가
     setInputs({
       ...inputs, 
       [name]: value
@@ -34,6 +34,12 @@ function App() {
         email: 'moshi@gmail.com'
     }
   ]);
+
+  const onRemove = id => {
+    setUsers(
+      users.filter(user => user.id !== id)
+    )
+  }
 
   const nextId = useRef(4) // 값이 바뀌어도 rerendering 하지 않음
   
@@ -64,7 +70,7 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} />
+      <UserList users={users} onRemove={onRemove} />
     </>
   )
 }
