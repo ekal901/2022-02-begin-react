@@ -1,6 +1,7 @@
 import React from 'react'
 
 function CreateUser({ username, email, onChange, onCreate }) {
+    console.log('createUser')
     return (
         <div>
             <input 
@@ -20,4 +21,5 @@ function CreateUser({ username, email, onChange, onCreate }) {
     )
 }
 
-export default CreateUser
+// React.memo : props가 바뀌었을 때만 rerendering
+export default React.memo(CreateUser)
