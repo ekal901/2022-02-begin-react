@@ -21,25 +21,22 @@ function App() {
     {
         id: 1,
         username: 'velopert',
-        email: 'public.velopert@gmail.com'
+        email: 'public.velopert@gmail.com',
+        active: true
     },
     {
         id: 2,
         username: 'shinchan',
-        email: 'shinchan@gmail.com'
+        email: 'shinchan@gmail.com',
+        active: false
     },
     {
         id: 3,
         username: 'moshi',
-        email: 'moshi@gmail.com'
+        email: 'moshi@gmail.com',
+        active: false
     }
   ]);
-
-  const onRemove = id => {
-    setUsers(
-      users.filter(user => user.id !== id)
-    )
-  }
 
   const nextId = useRef(4) // 값이 바뀌어도 rerendering 하지 않음
   
@@ -62,6 +59,18 @@ function App() {
     nextId.current += 1
   }
 
+  const onRemove = id => { // 삭제 시에는 filter 사용
+    setUsers(
+      users.filter(user => user.id !== id)
+    )
+  }
+
+  const changeColor = id => { // 업데이트 할때, map을 사용해서 구현 가능
+    setUsers(
+      users.map(user => user.id === id ? {...user, active: !user.active} : user)
+    )
+  }
+
   return (
     <>
       <CreateUser 
@@ -70,7 +79,11 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove} />
+      <UserList 
+        users={users} 
+        onRemove={onRemove}
+        changeColor={changeColor}
+      />
     </>
   )
 }
