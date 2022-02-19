@@ -47,14 +47,6 @@ function reducer(state, action) {
         const user = draft.users.find(user => user.id === action.id)
         user.active = !user.active
       })
-      // return {
-      //   ...state,
-      //   users: state.users.map(user => 
-      //     user.id === action.id 
-      //     ? {...user, active: !user.active}
-      //     : user
-      //   )
-      // }
     case "REMOVE_USER":
       return produce(state, draft => {
         const index = draft.users.findIndex(user => user.id === action.id)
