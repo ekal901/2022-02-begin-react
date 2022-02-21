@@ -9,6 +9,8 @@ import produce from 'immer';
 import CreateUser from './CreateUser';
 import useInputs from './useInputs';
 import UserList from './UserList';
+import Button from './components/Button';
+import './App.scss'
 
 function CountActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
@@ -95,16 +97,21 @@ function App() {
   const count = useMemo(() => CountActiveUsers(users), [users]);
 
   return (
-    <UserDispatch.Provider value={dispatch}>
-      <CreateUser
-        username={username}
-        email={email}
-        onChange={onChange}
-        onCreate={onCreate}
-      />
-      <UserList users={users} />
-      <div>활성 사용자 수 : {count}</div>
-    </UserDispatch.Provider>
+    // <UserDispatch.Provider value={dispatch}>
+    //   <CreateUser
+    //     username={username}
+    //     email={email}
+    //     onChange={onChange}
+    //     onCreate={onCreate}
+    //   />
+    //   <UserList users={users} />
+    //   <div>활성 사용자 수 : {count}</div>
+    // </UserDispatch.Provider>
+    <div className="App">
+      <div className="buttons">
+        <Button>Button</Button>
+      </div>
+    </div>
   );
 }
 
