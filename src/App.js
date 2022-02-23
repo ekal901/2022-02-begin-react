@@ -131,7 +131,9 @@ function App() {
       <div className="buttons">
         <Button size="large" fullWidth={true}>Button</Button>
         <Button size="large" color="gray" fullWidth={true}>Button</Button>
-        <Button size="large" color="pink" fullWidth={true}>Button</Button>
+        <Button size="large" color="pink" fullWidth={true} onClick={() => {
+          console.log('click')
+        }} >Button</Button>
       </div>
     </div>
   );
