@@ -123,6 +123,16 @@ function App() {
         <Button color="pink">Button</Button>
         <Button color="pink" size="small">Button</Button>
       </div>
+      <div className="buttons">
+        <Button size="large" outline={true}>Button</Button>
+        <Button color="gray" outline={true}>Button</Button>
+        <Button color="pink" size="small" outline={true}>Button</Button>
+      </div>
+      <div className="buttons">
+        <Button size="large" fullWidth={true}>Button</Button>
+        <Button size="large" color="gray" fullWidth={true}>Button</Button>
+        <Button size="large" color="pink" fullWidth={true}>Button</Button>
+      </div>
     </div>
   );
 }
